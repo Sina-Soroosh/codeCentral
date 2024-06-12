@@ -1,4 +1,6 @@
+import Header from "@/components/modules/Header/Header";
 import "@/styles/custom.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function RootLayout({
   children,
@@ -7,7 +9,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        <div className="main_child">{children}</div>
+      </body>
     </html>
   );
 }

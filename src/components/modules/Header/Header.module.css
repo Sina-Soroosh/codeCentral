@@ -1,0 +1,161 @@
+.header {
+    background: #232426;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #87878a;
+    padding: 15px 20px;
+}
+
+.header .content_header .top_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .content_header .top_header .logo img {
+    width: 150px;
+    max-width: 100%;
+}
+
+.header .content_header .top_header .search {
+    position: relative;
+}
+
+.header .content_header .top_header .search form input {
+    width: 300px;
+    max-width: 100%;
+    background: #4e4e4e;
+    border: none;
+    padding: 5px 20px;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.header .content_header .top_header .search form input::placeholder {
+    color: #fff;
+}
+
+.header .content_header .top_header .search form .icon_btn {
+    background: none;
+    border: none;
+    font-size: 19px;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 15px);
+    color: #fff;
+}
+
+.header .content_header .top_header .account .auth {
+    display: flex;
+    gap: 5px;
+}
+
+.header .content_header .top_header .account .auth a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+.header .content_header .top_header .account .auth a.login:hover {
+    border-color: #ffffff6b;
+}
+
+.header .content_header .top_header .account .auth a.register {
+    border-color: #1E5128;
+}
+
+.header .content_header .top_header .account .auth a.register:hover {
+    border-color: #1e51288a;
+}
+
+.header .content_header .top_header .account .user {
+    position: relative;
+}
+
+.header .content_header .top_header .account .user .logo {
+    border: 1px solid #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    background: #5e5c5c;
+    cursor: pointer;
+}
+
+.header .content_header .top_header .account .user .logo .icon svg {
+    font-size: 30px;
+    color: #d9d9d9;
+}
+
+.header .content_header .top_header .account .user .menu {
+    position: absolute;
+    left: 0;
+    background: #2e2d33;
+    padding: 10px 0;
+    width: 150px;
+    top: 115%;
+    border-radius: 10px;
+    border-top: 2px solid #4E9F3D;
+    transition: .3s;
+    opacity: 0;
+    visibility: hidden;
+    border-bottom: 2px solid #4E9F3D;
+}
+
+.header .content_header .top_header .account .user:hover .menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.header .content_header .top_header .account .user .menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+.header .content_header .top_header .account .user .menu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 5px;
+    font-size: 14px;
+    border-bottom: 2px solid #232426;
+}
+
+.header .content_header .top_header .account .user .menu ul li:last-child a {
+    border: none;
+}
+
+.header .content_header .bottom_header {
+    display: flex;
+    justify-content: center;
+    margin: 10px 100px 0 0;
+}
+
+.header .content_header .bottom_header .menu ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.header .content_header .bottom_header .menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.header .content_header .bottom_header .menu ul li a:hover {
+    color: #eee;
+}
