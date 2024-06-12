@@ -6,6 +6,7 @@
     right: 0;
     border-bottom: 1px solid #87878a;
     padding: 15px 20px;
+    z-index: 2;
 }
 
 .header .content_header .top_header {
