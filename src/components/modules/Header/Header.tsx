@@ -1,16 +1,34 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import { IoLogOut, IoSearch } from "react-icons/io5";
-import { FaArrowLeftLong, FaUser } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa6";
 import { AiOutlineDashboard } from "react-icons/ai";
+import { IoMdMenu } from "react-icons/io";
+import MenuForMobile from "../MenuForMobile/MenuForMobile";
 
 function Header() {
+  const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
+
+  const hideMenu = (): void => {
+    setIsShowMenu(false);
+  };
+
   return (
     <>
       <header className={styles.header}>
         <div className={`content ${styles.content_header}`}>
           <div className={styles.top_header}>
+            <div
+              className={styles.menu_icon}
+              onClick={() => setIsShowMenu(true)}
+            >
+              <span>
+                <IoMdMenu />
+              </span>
+            </div>
             <div className={styles.logo}>
               <Link href="/">
                 <img src="/images/logo/logo.png" alt="" />
@@ -87,6 +105,7 @@ function Header() {
           </div>
         </div>
       </header>
+      <MenuForMobile isActive={isShowMenu} hideMenu={hideMenu} />
     </>
   );
 }

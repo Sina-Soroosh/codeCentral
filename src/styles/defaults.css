@@ -57,4 +57,10 @@ i {
   margin-top: 105px;
 }
 
+@media screen and (max-width : 767px) {
+  .main_child {
+    margin-top: 70px;
+  }
+}
+
 /* Finish Default Styles */

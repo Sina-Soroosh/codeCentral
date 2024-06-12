@@ -14,6 +14,24 @@
     align-items: center;
 }
 
+.header .content_header .top_header .menu_icon {
+    background: #2e2d33;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #eee;
+    display: none;
+}
+
+.header .content_header .top_header .menu_icon svg {
+    font-size: 20px;
+    color: #eee;
+}
+
 .header .content_header .top_header .logo img {
     width: 150px;
     max-width: 100%;
@@ -158,4 +176,18 @@
 
 .header .content_header .bottom_header .menu ul li a:hover {
     color: #eee;
+}
+
+@media screen and (max-width : 767px) {
+    .header .content_header .top_header .menu_icon {
+        display: flex;
+    }
+
+    .header .content_header .top_header .search {
+        display: none;
+    }
+
+    .header .content_header .bottom_header {
+        display: none;
+    }
 }
