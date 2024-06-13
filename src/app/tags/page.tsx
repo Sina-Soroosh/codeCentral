@@ -1,3 +1,4 @@
+import Main from "@/components/templates/Tags/Main/Main";
 import { Metadata } from "next";
 import React from "react";
 
@@ -6,7 +7,11 @@ export const metadata: Metadata = {
 };
 
 function page() {
-  return <></>;
+  return (
+    <>
+      <Main />
+    </>
+  );
 }
 
 export default page;
