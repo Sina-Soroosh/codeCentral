@@ -1,0 +1,26 @@
+.tab .content .buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.tab .content .buttons .btn {
+    width: 100%;
+    background: #1E5128;
+    border: none;
+    color: #fff;
+    padding: 10px 0;
+    transition: .3s;
+}
+
+.tab .content .buttons .btn:hover,
+.tab .content .buttons .btn.active {
+    background-color: #4E9F3D;
+}
+
+.tab .content .buttons .btn:first-child {
+    border-radius: 0px 10px 10px 0;
+}
+
+.tab .content .buttons .btn:last-child {
+    border-radius: 10px 0 0 10px;
+}
