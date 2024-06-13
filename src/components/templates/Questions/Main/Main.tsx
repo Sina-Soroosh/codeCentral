@@ -3,6 +3,7 @@ import styles from "./Main.module.css";
 import Tab from "@/components/modules/Tab/Tab";
 import { SearchParams as SearchParamsType } from "@/types/SearchParams.types";
 import QuestionBox from "@/components/modules/QuestionBox/QuestionBox";
+import Pagination from "@/components/modules/Pagination/Pagination";
 
 type MainProps = {
   searchParams: SearchParamsType;
@@ -25,6 +26,12 @@ function Main({ searchParams }: MainProps) {
             <QuestionBox />
             <QuestionBox />
           </div>
+          <Pagination
+            activePage={isNaN(+searchParams?.page) ? 1 : +searchParams.page}
+            manyPage={3}
+            path="/questions"
+            searchParams={searchParams}
+          />
         </div>
       </div>
     </>
