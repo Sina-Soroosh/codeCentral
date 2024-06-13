@@ -1,0 +1,78 @@
+.main {
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .content {
+    background: #2e2d33;
+    padding: 15px 20px;
+    border-radius: 10px;
+    width: 300px;
+    max-height: 90vw;
+}
+
+.main .content .form .title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main .content .form .title h3 {
+    font-size: 17px;
+}
+
+.main .content .form .input_box {
+    position: relative;
+}
+
+.main .content .form .input_box input {
+    width: 100%;
+    background: #2e2d33;
+    border: 1px solid #3f3f46;
+    color: #fff;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+.main .content .form .input_box.first input {
+    border-radius: 10px 10px 0 0;
+}
+
+.main .content .form .input_box.last input {
+    border-radius: 0 0 10px 10px;
+}
+
+.main .content .form .input_box .icon {
+    position: absolute;
+    left: 5px;
+    color: #858595;
+    font-size: 18px;
+    top: calc(50% - 14px);
+}
+
+.main .content .form .link a {
+    color: #858595;
+    margin: 5px 0;
+    display: inline-block;
+    font-size: 15px;
+}
+
+.main .content .form .link a:hover {
+    text-decoration: underline;
+}
+
+.main .content .form .btn button {
+    background-color: #1E5128;
+    color: #fff;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 5px 0;
+    transition: .3s;
+}
+
+.main .content .form .btn button:hover {
+    background-color: #4E9F3D;
+}
