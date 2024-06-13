@@ -37,6 +37,7 @@ function Pagination(props: PaginationProps) {
               className={`${styles.page} ${
                 index + 1 === props.activePage && styles.active
               }`}
+              key={index}
               onClick={() => changePage(index + 1)}
             >
               {index + 1}
