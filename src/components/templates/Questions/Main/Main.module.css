@@ -17,3 +17,10 @@
 .main .content .container {
     margin: 30px 0;
 }
+
+.main .content .err {
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    margin: 20px 0;
+}

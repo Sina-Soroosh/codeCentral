@@ -32,6 +32,7 @@ function Main({ searchParams }: MainProps) {
             path="/questions"
             searchParams={searchParams}
           />
+          {/* <p className={styles.err}>سوالی برای نمایش وجود ندارد!</p> */}
         </div>
       </div>
     </>
