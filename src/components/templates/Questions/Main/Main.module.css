@@ -1,0 +1,15 @@
+.main {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .content {
+    padding: 30px;
+    width: 80vw;
+    max-width: 1244px;
+    border: 1px solid #3f3f46;
+    min-width: 300px;
+    border-radius: 10px;
+}
