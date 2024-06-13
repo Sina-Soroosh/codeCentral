@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import { IoLogOut, IoSearch } from "react-icons/io5";
-import { FaUser } from "react-icons/fa6";
+import { FaUser, FaUserPlus } from "react-icons/fa6";
 import { AiOutlineDashboard } from "react-icons/ai";
-import { IoMdMenu } from "react-icons/io";
+import { IoIosLogIn, IoMdMenu } from "react-icons/io";
 import MenuForMobile from "../MenuForMobile/MenuForMobile";
 
 function Header() {
@@ -43,15 +43,17 @@ function Header() {
               </form>
             </div>
             <div className={styles.account}>
-              {/* <div className={styles.auth}>
+              <div className={styles.auth}>
                 <Link href="/login" className={styles.login}>
-                  وارد شوید
+                  <IoIosLogIn />
+                  <span>وارد شوید</span>
                 </Link>
                 <Link href="/register" className={styles.register}>
-                  عضو شوید
+                  <FaUserPlus />
+                  <span>عضو شوید</span>
                 </Link>
-              </div> */}
-              <div className={styles.user}>
+              </div>
+              {/* <div className={styles.user}>
                 <div className={styles.logo}>
                   <span className={styles.icon}>
                     <FaUser />
@@ -79,7 +81,7 @@ function Header() {
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className={styles.bottom_header}>

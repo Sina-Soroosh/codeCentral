@@ -73,7 +73,9 @@
 }
 
 .header .content_header .top_header .account .auth a {
-    display: block;
+    display: flex;
+    gap: 5px;
+    align-items: center;
     text-decoration: none;
     color: #fff;
     font-size: 15px;
@@ -159,7 +161,7 @@
 .header .content_header .bottom_header {
     display: flex;
     justify-content: center;
-    margin: 10px 100px 0 0;
+    margin: 10px 0 0 75px;
 }
 
 .header .content_header .bottom_header .menu ul {
@@ -188,7 +190,12 @@
         display: none;
     }
 
+    .header .content_header .top_header .account .auth a span {
+        display: none;
+    }
+
     .header .content_header .bottom_header {
         display: none;
     }
+
 }
