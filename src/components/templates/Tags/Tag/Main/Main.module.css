@@ -1,0 +1,47 @@
+.main {
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main .title {
+    width: 80vw;
+    max-width: 1244px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main .title .line {
+    background-color: #1E5128;
+    height: 5px;
+    width: 20px;
+}
+
+.main .title h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.main .content {
+    padding: 30px;
+    width: 80vw;
+    max-width: 1244px;
+    border: 1px solid #3f3f46;
+    min-width: 300px;
+    border-radius: 10px;
+}
+
+.main .content .container {
+    margin: 30px 0;
+}
+
+.main .content .err {
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    margin: 20px 0;
+}
