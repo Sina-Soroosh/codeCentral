@@ -13,3 +13,7 @@
     min-width: 300px;
     border-radius: 10px;
 }
+
+.main .content .container {
+    margin: 30px 0;
+}

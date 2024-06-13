@@ -1,0 +1,47 @@
+.box {
+    padding: 15px 0;
+    border-top: 1px solid #3f3f46;
+    margin: 10px 0;
+    border-bottom: 1px solid #3f3f46;
+}
+
+.box .title {
+    margin: 10px 0;
+}
+
+.box .title a {
+    font-size: 17px;
+    color: #fff;
+    border-bottom: 1px solid #3f3f46;
+}
+
+.box .tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0 10px 0;
+}
+
+.box .tags .tag {
+    background-color: #4E9F3D;
+    color: #fff;
+    display: block;
+    font-size: 15px;
+    padding: 0 5px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.box .tags .tag:hover {
+    background-color: #1E5128;
+}
+
+.box .user {
+    font-size: 15px;
+}
+
+.box .user a {
+    color: #eee;
+    text-decoration: underline;
+}
