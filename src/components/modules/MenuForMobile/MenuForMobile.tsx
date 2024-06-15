@@ -1,8 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import styles from "./MenuForMobile.module.css";
 import { IoSearch } from "react-icons/io5";
 import { FaXmark } from "react-icons/fa6";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface MenuForMobileProps {
   isActive: boolean;
@@ -10,6 +13,23 @@ interface MenuForMobileProps {
 }
 
 function MenuForMobile({ isActive, hideMenu }: MenuForMobileProps) {
+  const inputRef = useRef<null | HTMLInputElement>(null);
+  const router = useRouter();
+
+  const searchHandler = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+
+    if (inputRef.current) {
+      const keyWord: string = inputRef.current.value;
+
+      if (keyWord.trim()) {
+        router.push(`/search?q=${keyWord.trim()}`);
+
+        inputRef.current.value = "";
+      }
+    }
+  };
+
   return (
     <>
       <div
@@ -24,8 +44,12 @@ function MenuForMobile({ isActive, hideMenu }: MenuForMobileProps) {
             </span>
           </div>
           <div className={styles.search}>
-            <form>
-              <input type="search" placeholder="جستجو بین سوالات ..." />
+            <form onSubmit={searchHandler}>
+              <input
+                type="search"
+                placeholder="جستجو بین سوالات ..."
+                ref={inputRef}
+              />
               <button className={styles.icon_btn}>
                 <IoSearch />
               </button>

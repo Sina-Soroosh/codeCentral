@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./Header.module.css";
 import Link from "next/link";
 import { IoLogOut, IoSearch } from "react-icons/io5";
@@ -8,9 +8,26 @@ import { FaUser, FaUserPlus } from "react-icons/fa6";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { IoIosLogIn, IoMdMenu } from "react-icons/io";
 import MenuForMobile from "../MenuForMobile/MenuForMobile";
+import { useRouter } from "next/navigation";
 
 function Header() {
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
+  const inputRef = useRef<null | HTMLInputElement>(null);
+  const router = useRouter();
+
+  const searchHandler = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+
+    if (inputRef.current) {
+      const keyWord: string = inputRef.current.value;
+
+      if (keyWord.trim()) {
+        router.push(`/search?q=${keyWord.trim()}`);
+
+        inputRef.current.value = "";
+      }
+    }
+  };
 
   const hideMenu = (): void => {
     setIsShowMenu(false);
@@ -35,8 +52,12 @@ function Header() {
               </Link>
             </div>
             <div className={styles.search}>
-              <form>
-                <input type="search" placeholder="جستجو بین سوالات ..." />
+              <form onSubmit={searchHandler}>
+                <input
+                  type="search"
+                  placeholder="جستجو بین سوالات ..."
+                  ref={inputRef}
+                />
                 <button className={styles.icon_btn}>
                   <IoSearch />
                 </button>
