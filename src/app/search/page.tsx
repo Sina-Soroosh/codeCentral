@@ -1,5 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
+import Main from "@/components/templates/Search/Main/Main";
+import { redirect } from "next/navigation";
 
 type SearchProps = {
   searchParams: { q: string };
@@ -12,7 +14,15 @@ export function generateMetadata({ searchParams }: SearchProps): Metadata {
 }
 
 function page({ searchParams }: SearchProps) {
-  return <></>;
+  if (!searchParams.q) {
+    redirect("/404");
+  }
+
+  return (
+    <>
+      <Main searchParams={searchParams} />
+    </>
+  );
 }
 
 export default page;
