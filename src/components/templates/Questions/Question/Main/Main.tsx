@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Main.module.css";
 import Link from "next/link";
+import AnswerBox from "@/components/modules/AnswerBox/AnswerBox";
 
 function Main() {
   return (
@@ -37,7 +38,11 @@ function Main() {
               </span>
             </div>
           </div>
-          <div className={styles.answers}></div>
+          <div className={styles.answers}>
+            <AnswerBox />
+            <AnswerBox />
+            <AnswerBox />
+          </div>
         </div>
       </div>
     </>

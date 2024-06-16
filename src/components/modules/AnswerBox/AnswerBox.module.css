@@ -1,0 +1,78 @@
+.box {
+    padding: 15px 0;
+    border-top: 1px solid #3f3f46;
+    margin: 10px 0;
+    border-bottom: 1px solid #3f3f46;
+}
+
+.box .top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.box .top .actions button {
+    background-color: #1E5128;
+    border: 1px solid #1E5128;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 5px;
+    color: #fff;
+    transition: .3s;
+    font-size: 15px;
+}
+
+.box .top .actions button:hover {
+    background-color: transparent;
+}
+
+.box .top .status span {
+    background-color: #1E5128;
+    display: inline-block;
+    margin: 0 5px;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.box .body {
+    margin: 15px 0;
+}
+
+.box .body p {
+    font-size: 17px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.box .body blockquote {
+    padding-right: 10px;
+    border-right: 3px solid #777777;
+}
+
+.box .body pre {
+    direction: ltr;
+    width: 100%;
+    background-color: #777777;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.box .body i {
+    font-style: italic;
+}
+
+.box .body a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.box .user {
+    font-size: 15px;
+}
+
+.box .user a {
+    color: #eee;
+    text-decoration: underline;
+}
