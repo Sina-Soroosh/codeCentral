@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Main.module.css";
 import Link from "next/link";
 import AnswerBox from "@/components/modules/AnswerBox/AnswerBox";
+import Answer from "../Answer/Answer";
 
 function Main() {
   return (
@@ -43,6 +44,7 @@ function Main() {
             <AnswerBox />
             <AnswerBox />
           </div>
+          <Answer />
         </div>
       </div>
     </>
