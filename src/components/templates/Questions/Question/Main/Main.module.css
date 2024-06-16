@@ -1,0 +1,102 @@
+.main {
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main .content {
+    padding: 30px;
+    width: 80vw;
+    max-width: 1244px;
+    border: 1px solid #3f3f46;
+    min-width: 300px;
+    border-radius: 10px;
+}
+
+.main .content .question {
+    padding: 15px 0;
+    border-top: 3px solid #1E5128;
+    margin: 10px 0;
+    border-bottom: 3px solid #1E5128;
+}
+
+.main .content .question .title {
+    margin: 10px 0;
+}
+
+.main .content .question .title a {
+    font-size: 17px;
+    color: #fff;
+    border-bottom: 1px solid #3f3f46;
+}
+
+.main .content .question .body {
+    margin: 15px 0;
+}
+
+.main .content .question .body p {
+    font-size: 17px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.main .content .question .body blockquote {
+    padding-right: 10px;
+    border-right: 3px solid #777777;
+}
+
+.main .content .question .body pre {
+    direction: ltr;
+    width: 100%;
+    background-color: #777777;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.main .content .question .body i {
+    font-style: italic;
+}
+
+.main .content .question .body a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.main .content .question .tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0 10px 0;
+    border-top: 1px solid #3f3f46;
+    padding: 5px 0;
+}
+
+.main .content .question .tags .tag {
+    background-color: #4E9F3D;
+    color: #fff;
+    display: block;
+    font-size: 15px;
+    padding: 0 5px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.main .content .question .tags .tag:hover {
+    background-color: #1E5128;
+}
+
+.main .content .question .user {
+    font-size: 15px;
+}
+
+.main .content .question .user a {
+    color: #eee;
+    text-decoration: underline;
+}
+
+.main .content .answers {
+    margin: 10px 0;
+}
