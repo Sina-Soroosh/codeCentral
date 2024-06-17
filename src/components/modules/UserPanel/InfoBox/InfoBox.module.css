@@ -1,0 +1,30 @@
+.box {
+    background: #2e2d33;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.box .icon {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #1E5128;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+.box .detail h6 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.box .detail span {
+    font-size: 13px;
+}
