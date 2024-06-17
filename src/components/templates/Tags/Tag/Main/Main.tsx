@@ -25,6 +25,7 @@ function Main({ searchParams, tag }: MainProps) {
             }
             path={`/tags/${tag}`}
             searchParams={searchParams}
+            isUser={false}
           />
           <div className={styles.container}>
             <QuestionBox />

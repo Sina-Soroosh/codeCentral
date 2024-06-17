@@ -1,6 +1,7 @@
 import React from "react";
 import { SearchParams } from "@/types/SearchParams.types";
 import { Metadata } from "next";
+import Main from "@/components/templates/User/Main/Main";
 
 type UserProps = {
   searchParams: SearchParams;
@@ -13,8 +14,12 @@ export function generateMetadata({ params }: UserProps): Metadata {
   };
 }
 
-function page() {
-  return <></>;
+function page({ params, searchParams }: UserProps) {
+  return (
+    <>
+      <Main searchParams={searchParams} username={params.username} />
+    </>
+  );
 }
 
 export default page;

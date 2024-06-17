@@ -20,6 +20,7 @@ function Main({ searchParams }: MainProps) {
             }
             path="/questions"
             searchParams={searchParams}
+            isUser={false}
           />
           <div className={styles.container}>
             <QuestionBox />
