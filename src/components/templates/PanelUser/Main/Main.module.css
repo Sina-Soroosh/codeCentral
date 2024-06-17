@@ -1,0 +1,39 @@
+.main {
+    padding: 30px 100px;
+}
+
+.main .content .activity {
+    margin: 20px 0;
+    background-color: #2e2d33;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.main .content .activity .questions,
+.main .content .activity .answers {
+    padding: 15px;
+    background-color: #504d5e;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.main .content .activity .questions .title h5,
+.main .content .activity .answers .title h5 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.main .content .activity .questions .err,
+.main .content .activity .answers .err {
+    text-align: center;
+    color: #ff7676;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+@media screen and (max-width : 767px) {
+    .main {
+        padding: 30px 20px;
+    }
+}

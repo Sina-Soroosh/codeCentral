@@ -1,4 +1,5 @@
 import UserPanel from "@/components/layout/UserPanel/UserPanel";
+import Main from "@/components/templates/PanelUser/Main/Main";
 import { Metadata } from "next";
 import React from "react";
 
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 function page() {
   return (
     <>
-      <UserPanel></UserPanel>
+      <UserPanel>
+        <Main />
+      </UserPanel>
     </>
   );
 }
