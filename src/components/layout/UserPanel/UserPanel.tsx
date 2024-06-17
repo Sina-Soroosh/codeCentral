@@ -34,7 +34,7 @@ function UserPanel({ children }: PropsWithChildren) {
             <li>
               <Link href="/p-user">
                 <TbStack2 />
-                داشبورد
+                پیشخوان
               </Link>
             </li>
             <li>
