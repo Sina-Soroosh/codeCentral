@@ -64,7 +64,7 @@ function Header() {
               </form>
             </div>
             <div className={styles.account}>
-              <div className={styles.auth}>
+              {/* <div className={styles.auth}>
                 <Link href="/login" className={styles.login}>
                   <IoIosLogIn />
                   <span>وارد شوید</span>
@@ -73,8 +73,8 @@ function Header() {
                   <FaUserPlus />
                   <span>عضو شوید</span>
                 </Link>
-              </div>
-              {/* <div className={styles.user}>
+              </div> */}
+              <div className={styles.user}>
                 <div className={styles.logo}>
                   <span className={styles.icon}>
                     <FaUser />
@@ -102,7 +102,7 @@ function Header() {
                     </li>
                   </ul>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
           <div className={styles.bottom_header}>
