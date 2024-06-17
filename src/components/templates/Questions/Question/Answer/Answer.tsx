@@ -1,8 +1,19 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import styles from "./Answer.module.css";
-import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const EditorText = dynamic(
+  () => {
+    return import("../../../../modules/EditorText/EditorText");
+  },
+  { ssr: false }
+);
 
 function Answer() {
+  const [text, setText] = useState<string>("");
+
   return (
     <>
       <div className={styles.answer}>
@@ -22,6 +33,7 @@ function Answer() {
               اگه پاسخت رفرنسی داره، لینک رفرنس رو هم بذار تا پاسختت کاملتر و
               معتبر تر بشه
             </p>
+            <EditorText value={text} onChange={setText} />
             <button className={styles.submit_btn}>ارسال پاسخ</button>
           </div>
           {/* <p className={styles.err}>
