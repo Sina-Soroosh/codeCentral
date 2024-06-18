@@ -1,6 +1,12 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+type PayloadToken = { username: string };
+type VerifyToken = {
+  payload?: jwt.JwtPayload | string;
+  isSuccessfully: boolean;
+};
+
 const hashPassword = (password: string): string => {
   const hashed: string = bcrypt.hashSync(password, 10);
 
@@ -13,7 +19,7 @@ const compereHashedPassword = (password: string, hashed: string): boolean => {
   return isValid;
 };
 
-const generateToken = (payload: { username: string }): string => {
+const generateToken = (payload: PayloadToken): string => {
   const token: string = jwt.sign(
     payload,
     process.env.TOKEN_PRIVATE_KEY as string,
@@ -23,7 +29,7 @@ const generateToken = (payload: { username: string }): string => {
   return token;
 };
 
-const generateRefreshToken = (payload: { username: string }): string => {
+const generateRefreshToken = (payload: PayloadToken): string => {
   const token: string = jwt.sign(
     payload,
     process.env.REFRESH_TOKEN_PRIVATE_KEY as string,
@@ -33,9 +39,23 @@ const generateRefreshToken = (payload: { username: string }): string => {
   return token;
 };
 
+const verifyToken = (token: string): VerifyToken => {
+  try {
+    const payload: string | jwt.JwtPayload = jwt.verify(
+      token,
+      process.env.TOKEN_PRIVATE_KEY as string
+    );
+
+    return { isSuccessfully: true, payload };
+  } catch (error) {
+    return { isSuccessfully: false };
+  }
+};
+
 export {
   hashPassword,
   compereHashedPassword,
   generateToken,
   generateRefreshToken,
+  verifyToken,
 };
