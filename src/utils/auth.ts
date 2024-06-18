@@ -6,4 +6,10 @@ const hashPassword = (password: string): string => {
   return hashed;
 };
 
-export { hashPassword };
+const compereHashedPassword = (password: string, hashed: string): boolean => {
+  const isValid: boolean = bcrypt.compareSync(password, hashed);
+
+  return isValid;
+};
+
+export { hashPassword, compereHashedPassword };
