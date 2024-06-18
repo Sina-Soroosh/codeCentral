@@ -23,4 +23,19 @@ const generateToken = (payload: { username: string }): string => {
   return token;
 };
 
-export { hashPassword, compereHashedPassword, generateToken };
+const generateRefreshToken = (payload: { username: string }): string => {
+  const token: string = jwt.sign(
+    payload,
+    process.env.REFRESH_TOKEN_PRIVATE_KEY as string,
+    { expiresIn: "30 days" }
+  );
+
+  return token;
+};
+
+export {
+  hashPassword,
+  compereHashedPassword,
+  generateToken,
+  generateRefreshToken,
+};
