@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-react": "6.2",
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.3",
     "ckeditor5-custom-build": "^0.0.6",
     "mongoose": "^8.4.3",
