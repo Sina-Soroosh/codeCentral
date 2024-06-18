@@ -1,0 +1,94 @@
+.main {
+    padding: 30px 100px;
+}
+
+.main .content .profile {
+    margin: 20px 0;
+    background-color: #2e2d33;
+    border-radius: 5px;
+    padding: 15px 0;
+}
+
+.main .content .profile .title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main .content .profile .title .line {
+    background-color: #1E5128;
+    height: 5px;
+    width: 20px;
+}
+
+.main .content .profile .title h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.main .content .profile .boxes {
+    padding: 0 25px;
+}
+
+.main .content .profile .box {
+    padding: 10px;
+    border: 1px solid #3f3f46;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.main .content .profile .box .title_box {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.main .content .profile .box .text_box {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #c9c9c9;
+}
+
+.main .content .profile .box .input_box {
+    margin: 10px 0;
+}
+
+.main .content .profile .box .input_box label {
+    color: #c9c9c9;
+    font-size: 15px;
+}
+
+.main .content .profile .box .input_box input {
+    width: 100%;
+    background-color: #4e4b58;
+    border: 1px solid #3f3f46;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.main .content .profile .box .input_box textarea {
+    width: 100%;
+    max-height: 200px;
+    background-color: #4e4b58;
+    border: 1px solid #3f3f46;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.main .content .profile .box .submit_btn {
+    background-color: #1E5128;
+    transition: .3s;
+    width: 100%;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.main .content .profile .box .submit_btn:hover {
+    background-color: #4E9F3D;
+}
+
+@media screen and (max-width : 767px) {
+    .main {
+        padding: 30px 20px;
+    }
+}
