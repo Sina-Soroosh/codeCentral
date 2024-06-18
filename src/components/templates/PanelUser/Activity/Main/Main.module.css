@@ -1,0 +1,34 @@
+.main {
+    padding: 30px 100px;
+}
+
+.main .title {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main .title .line {
+    background-color: #1E5128;
+    height: 5px;
+    width: 20px;
+}
+
+.main .title h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.main .content .activity {
+    margin: 20px 0;
+    border: 1px solid #3f3f46;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+@media screen and (max-width : 767px) {
+    .main {
+        padding: 30px 20px;
+    }
+}
