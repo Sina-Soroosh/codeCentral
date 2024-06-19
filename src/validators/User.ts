@@ -8,7 +8,7 @@ type User = {
 };
 
 const check = (user: User): boolean => {
-  if (user.username.length < 3) return false;
+  if (!user.username || user.username.length < 3) return false;
 
   const isValidPassword: boolean = patterns.password.test(user.password);
 
