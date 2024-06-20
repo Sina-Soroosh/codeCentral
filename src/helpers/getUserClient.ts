@@ -1,17 +1,5 @@
+import { Auth } from "@/types/Auth.types";
 import { User } from "@/types/Users.types";
-
-type IsLogin = {
-  isLogin: true;
-  isAdmin: boolean;
-  user: User;
-  token?: string;
-};
-
-type IsUnauthorize = {
-  isLogin: false;
-};
-
-type GetUserReturn = IsLogin | IsUnauthorize;
 
 const getMe = async (): Promise<false | User> => {
   const res = await fetch("/api/auth/me");
@@ -35,7 +23,7 @@ const refreshMe = async (): Promise<false | User> => {
   return await getMe();
 };
 
-const getUser = async (): Promise<GetUserReturn> => {
+const getUser = async (): Promise<Auth> => {
   const user = await getMe();
 
   if (user !== false) {

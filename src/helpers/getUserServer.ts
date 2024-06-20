@@ -6,19 +6,7 @@ import UserModel from "@/models/User";
 import { generateToken, verifyToken } from "@/utils/auth";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
-
-type IsLogin = {
-  isLogin: true;
-  isAdmin: boolean;
-  user: User;
-  token?: string;
-};
-
-type IsUnauthorize = {
-  isLogin: false;
-};
-
-type GetUserReturn = IsLogin | IsUnauthorize;
+import { Auth } from "@/types/Auth.types";
 
 const getMe = async (): Promise<false | User> => {
   try {
@@ -93,7 +81,7 @@ const refreshMe = async (): Promise<false | (User & { token: string })> => {
   }
 };
 
-const getUser = async (): Promise<GetUserReturn> => {
+const getUser = async (): Promise<Auth> => {
   const user = await getMe();
 
   if (user !== false) {
