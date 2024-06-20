@@ -64,6 +64,7 @@ function Header() {
     }
 
     mutate();
+    router.push("/login");
   };
 
   return (

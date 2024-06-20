@@ -10,6 +10,7 @@ import patterns from "@/utils/patterns";
 import Loader from "@/components/modules/Loader/Loader";
 import { useRouter } from "next/navigation";
 import showToast from "@/helpers/showToast";
+import { useSWRConfig } from "swr";
 
 type UserRegister = {
   username: string;
@@ -25,6 +26,7 @@ function Main() {
   const emailRef = useRef<null | HTMLInputElement>(null);
   const passwordRef = useRef<null | HTMLInputElement>(null);
   const repeatPasswordRef = useRef<null | HTMLInputElement>(null);
+  const { mutate } = useSWRConfig();
 
   const registerHandler = async (user: UserRegister): Promise<void> => {
     const response = await fetch("/api/auth/register", {
@@ -52,6 +54,7 @@ function Main() {
           confirmButtonColor: "#1E5128",
         });
 
+        mutate("GetMeHeader");
         router.replace("/p-user");
         break;
 

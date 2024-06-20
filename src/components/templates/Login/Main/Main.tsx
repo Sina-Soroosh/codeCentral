@@ -8,12 +8,14 @@ import Swal from "sweetalert2";
 import Loader from "@/components/modules/Loader/Loader";
 import { useRouter } from "next/navigation";
 import showToast from "@/helpers/showToast";
+import { useSWRConfig } from "swr";
 
 function Main() {
   const router = useRouter();
   const [isShowLoader, setIsShowLoader] = useState<boolean>(false);
   const identifierRef = useRef<null | HTMLInputElement>(null);
   const passwordRef = useRef<null | HTMLInputElement>(null);
+  const { mutate } = useSWRConfig();
 
   const loginHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,6 +49,7 @@ function Main() {
           confirmButtonColor: "#1E5128",
         });
 
+        mutate("GetMeHeader");
         router.replace("/p-user");
         break;
 

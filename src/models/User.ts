@@ -18,6 +18,11 @@ const schema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    bio: {
+      type: String,
+      default: "هنوز بیوگرافی توسط کاربر نوشته نشده است!",
+      required: true,
+    },
     role: {
       type: String,
       enum: ["ADMIN", "USER"],
