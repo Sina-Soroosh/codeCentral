@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 import patterns from "@/utils/patterns";
 import Loader from "@/components/modules/Loader/Loader";
 import { useRouter } from "next/navigation";
+import showToast from "@/helpers/showToast";
 
 type UserRegister = {
   username: string;
@@ -24,23 +25,6 @@ function Main() {
   const emailRef = useRef<null | HTMLInputElement>(null);
   const passwordRef = useRef<null | HTMLInputElement>(null);
   const repeatPasswordRef = useRef<null | HTMLInputElement>(null);
-
-  const showToast = (title: string): void => {
-    Swal.fire({
-      title,
-      position: "top",
-      toast: true,
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      background: "#360404",
-      color: "#fff",
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      },
-    });
-  };
 
   const registerHandler = async (user: UserRegister): Promise<void> => {
     const response = await fetch("/api/auth/register", {

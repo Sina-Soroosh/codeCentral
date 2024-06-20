@@ -13,7 +13,7 @@ import useSWR from "swr";
 import { Auth } from "@/types/Auth.types";
 import getUser from "@/helpers/getUserClient";
 import Loader from "../Loader/Loader";
-import Swal from "sweetalert2";
+import showToast from "@/helpers/showToast";
 
 const fetcher = async (): Promise<Auth> => {
   return await getUser();
@@ -58,20 +58,7 @@ function Header() {
     setIsShowLoader(false);
 
     if (res.status !== 200) {
-      Swal.fire({
-        title: "خطایی رخ داده",
-        position: "top",
-        toast: true,
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        background: "#360404",
-        color: "#fff",
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        },
-      });
+      showToast("خطایی رخ داده");
 
       return;
     }

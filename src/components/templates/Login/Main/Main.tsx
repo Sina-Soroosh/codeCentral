@@ -7,29 +7,13 @@ import Link from "next/link";
 import Swal from "sweetalert2";
 import Loader from "@/components/modules/Loader/Loader";
 import { useRouter } from "next/navigation";
+import showToast from "@/helpers/showToast";
 
 function Main() {
   const router = useRouter();
   const [isShowLoader, setIsShowLoader] = useState<boolean>(false);
   const identifierRef = useRef<null | HTMLInputElement>(null);
   const passwordRef = useRef<null | HTMLInputElement>(null);
-
-  const showToast = (title: string): void => {
-    Swal.fire({
-      title,
-      position: "top",
-      toast: true,
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      background: "#360404",
-      color: "#fff",
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      },
-    });
-  };
 
   const loginHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
