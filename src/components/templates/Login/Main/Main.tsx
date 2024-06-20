@@ -76,7 +76,7 @@ function Main() {
     <>
       <div className={styles.main}>
         <div className={styles.content}>
-          <form className={styles.form} onClick={loginHandler}>
+          <form className={styles.form} onSubmit={loginHandler}>
             <div className={styles.title}>
               <h3>ورود به مرکز کد</h3>
             </div>
