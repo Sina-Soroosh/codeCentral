@@ -9,9 +9,20 @@ import { AiOutlineDashboard } from "react-icons/ai";
 import { IoIosLogIn, IoMdMenu } from "react-icons/io";
 import MenuForMobile from "../MenuForMobile/MenuForMobile";
 import { useRouter } from "next/navigation";
+import useSWR from "swr";
+import { Auth } from "@/types/Auth.types";
+import getUser from "@/helpers/getUserClient";
+import Loader from "../Loader/Loader";
+import Swal from "sweetalert2";
+
+const fetcher = async (): Promise<Auth> => {
+  return await getUser();
+};
 
 function Header() {
+  const { data, mutate } = useSWR<Auth>("GetMeHeader", fetcher);
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
+  const [isShowLoader, setIsShowLoader] = useState<boolean>(false);
   const inputRef = useRef<null | HTMLInputElement>(null);
   const router = useRouter();
 
@@ -31,6 +42,41 @@ function Header() {
 
   const hideMenu = (): void => {
     setIsShowMenu(false);
+  };
+
+  const logoutHandler = async (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+
+    setIsShowLoader(true);
+
+    const res = await fetch("/api/auth/logout", {
+      method: "POST",
+    });
+
+    setIsShowLoader(false);
+
+    if (res.status !== 200) {
+      Swal.fire({
+        title: "خطایی رخ داده",
+        position: "top",
+        toast: true,
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        background: "#360404",
+        color: "#fff",
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+
+      return;
+    }
+
+    mutate();
   };
 
   return (
@@ -64,45 +110,48 @@ function Header() {
               </form>
             </div>
             <div className={styles.account}>
-              {/* <div className={styles.auth}>
-                <Link href="/login" className={styles.login}>
-                  <IoIosLogIn />
-                  <span>وارد شوید</span>
-                </Link>
-                <Link href="/register" className={styles.register}>
-                  <FaUserPlus />
-                  <span>عضو شوید</span>
-                </Link>
-              </div> */}
-              <div className={styles.user}>
-                <div className={styles.logo}>
-                  <span className={styles.icon}>
-                    <FaUser />
-                  </span>
+              {data?.isLogin ? (
+                <div className={styles.user}>
+                  <div className={styles.logo}>
+                    <span className={styles.icon}>
+                      <FaUser />
+                    </span>
+                  </div>
+                  <div className={styles.menu}>
+                    <ul>
+                      <li>
+                        <Link href="/p-user">
+                          <AiOutlineDashboard />
+                          پیشخوان
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/p-user/details">
+                          <FaUser />
+                          ویرایش پروفایل
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#" onClick={logoutHandler}>
+                          <IoLogOut />
+                          خروج
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div className={styles.menu}>
-                  <ul>
-                    <li>
-                      <Link href="/p-user">
-                        <AiOutlineDashboard />
-                        پیشخوان
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="/p-user/details">
-                        <FaUser />
-                        ویرایش پروفایل
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#">
-                        <IoLogOut />
-                        خروج
-                      </Link>
-                    </li>
-                  </ul>
+              ) : (
+                <div className={styles.auth}>
+                  <Link href="/login" className={styles.login}>
+                    <IoIosLogIn />
+                    <span>وارد شوید</span>
+                  </Link>
+                  <Link href="/register" className={styles.register}>
+                    <FaUserPlus />
+                    <span>عضو شوید</span>
+                  </Link>
                 </div>
-              </div>
+              )}
             </div>
           </div>
           <div className={styles.bottom_header}>
@@ -129,6 +178,7 @@ function Header() {
         </div>
       </header>
       <MenuForMobile isActive={isShowMenu} hideMenu={hideMenu} />
+      {isShowLoader ? <Loader /> : null}
     </>
   );
 }
