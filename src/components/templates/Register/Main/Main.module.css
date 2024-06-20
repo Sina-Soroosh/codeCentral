@@ -51,6 +51,12 @@
     top: calc(50% - 14px);
 }
 
+.main .content .form .note {
+    margin: 10px 0;
+    color: #858595;
+    font-size: 13px;
+}
+
 .main .content .form .link a {
     color: #858595;
     margin: 5px 0;
