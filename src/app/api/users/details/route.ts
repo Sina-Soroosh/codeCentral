@@ -29,7 +29,7 @@ export const PUT = async (req: NextRequest): Promise<Response> => {
 
     const body: Body = await req.json();
 
-    if (!body.username || body.username.length === 0) {
+    if (!body.username || body.username.length < 3) {
       return Response.json(
         { message: "Params is invalid !!" },
         {
