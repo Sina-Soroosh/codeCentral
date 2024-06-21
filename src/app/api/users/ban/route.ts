@@ -37,7 +37,7 @@ export const POST = async (req: NextRequest): Promise<Response> => {
       return Response.json(
         { message: "Params is invalid !!" },
         {
-          status: 403,
+          status: 422,
         }
       );
     }
@@ -93,7 +93,7 @@ export const DELETE = async (req: NextRequest): Promise<Response> => {
       return Response.json(
         { message: "Params is invalid !!" },
         {
-          status: 403,
+          status: 422,
         }
       );
     }
