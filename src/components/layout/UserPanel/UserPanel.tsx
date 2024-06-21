@@ -12,9 +12,39 @@ import {
   TbStack2,
   TbUser,
 } from "react-icons/tb";
+import { useRouter } from "next/navigation";
+import showToast from "@/helpers/showToast";
+import { useSWRConfig } from "swr";
+import Loader from "@/components/modules/Loader/Loader";
 
 function UserPanel({ children }: PropsWithChildren) {
+  const router = useRouter();
+  const { mutate } = useSWRConfig();
   const [isShowMenu, setIsShowMenu] = useState<boolean>(false);
+  const [isShowLoader, setIsShowLoader] = useState<boolean>(false);
+
+  const logoutHandler = async (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+
+    setIsShowLoader(true);
+
+    const res = await fetch("/api/auth/logout", {
+      method: "POST",
+    });
+
+    setIsShowLoader(false);
+
+    if (res.status !== 200) {
+      showToast("خطایی رخ داده");
+
+      return;
+    }
+
+    mutate("GetMeHeader");
+    router.replace("/login");
+  };
 
   return (
     <>
@@ -56,7 +86,7 @@ function UserPanel({ children }: PropsWithChildren) {
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="#" onClick={logoutHandler}>
                 <TbLogout2 />
                 خروج
               </Link>
@@ -65,6 +95,7 @@ function UserPanel({ children }: PropsWithChildren) {
         </div>
         <div className={styles.content}>{children}</div>
       </div>
+      {isShowLoader ? <Loader /> : null}
     </>
   );
 }
