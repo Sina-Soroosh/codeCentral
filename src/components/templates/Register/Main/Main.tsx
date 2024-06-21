@@ -41,6 +41,9 @@ function Main() {
 
     switch (response.status) {
       case 403:
+        showToast("این ایمیل مسدود شده است");
+        break;
+      case 409:
         showToast("کاربری با این ایمیل و نام کاربری وجود دارد");
         break;
       case 422:

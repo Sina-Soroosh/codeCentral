@@ -31,7 +31,7 @@ const getMe = async (): Promise<false | User> => {
           username: (verifiedToken.payload as { username: string }).username,
         },
         "username email role"
-      );
+      ).lean();
 
       if (!user) {
         return false;
@@ -67,7 +67,7 @@ const refreshMe = async (): Promise<false | (User & { token: string })> => {
     const user: User | null = await UserModel.findOne(
       { refreshToken: refreshToken.value },
       "username email role"
-    );
+    ).lean();
 
     if (!user) {
       return false;

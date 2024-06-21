@@ -1,4 +1,5 @@
 import { connectToDB } from "@/configs/db";
+import BanModel from "@/models/Ban";
 import UserModel from "@/models/User";
 import {
   generateRefreshToken,
@@ -37,7 +38,7 @@ export const POST = async (req: Request): Promise<Response> => {
           {
             message: "There is already a user with this username or email !!",
           },
-          { status: 403 }
+          { status: 409 }
         );
       }
     }
@@ -48,6 +49,17 @@ export const POST = async (req: Request): Promise<Response> => {
       return Response.json(
         { message: "Params is not valid !" },
         { status: 422 }
+      );
+    }
+
+    const isBan = await BanModel.findOne({ email: newUser.email });
+
+    if (isBan) {
+      return Response.json(
+        { message: "This email has been blocked. !!" },
+        {
+          status: 403,
+        }
       );
     }
 
