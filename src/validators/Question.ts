@@ -16,6 +16,10 @@ const check = (question: Question): boolean => {
     return false;
   }
 
+  if (!Array.isArray(question.tags) || question.tags.length === 0) {
+    return false;
+  }
+
   let isValidTags: boolean = true;
 
   question.tags.some((tag) => {
