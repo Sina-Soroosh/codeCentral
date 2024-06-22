@@ -83,10 +83,49 @@ export const PUT = async (
       shortName: body.shortName,
     });
 
+    return Response.json({ message: "Update Tag is successfully !!" });
+  } catch (error) {
     return Response.json(
-      { message: "Update Tag is successfully !!" },
-      { status: 201 }
+      { message: "Internal Server Error !!", error },
+      { status: 500 }
     );
+  }
+};
+
+export const DELETE = async (
+  req: NextRequest,
+  { params }: Params
+): Promise<Response> => {
+  try {
+    await connectToDB();
+
+    const applicant = await getUser();
+
+    if (!applicant.isLogin || !applicant.isAdmin) {
+      return Response.json(
+        { message: "You do not access to this data !!" },
+        {
+          status: 403,
+        }
+      );
+    }
+
+    const tag: null | Tag = await TagModel.findOne({
+      shortName: params.shortName,
+    });
+
+    if (!tag) {
+      return Response.json(
+        {
+          message: "NotFound tag !!",
+        },
+        { status: 404 }
+      );
+    }
+
+    await TagModel.findByIdAndDelete(tag._id);
+
+    return Response.json({ message: "Remove Tag is successfully !!" });
   } catch (error) {
     return Response.json(
       { message: "Internal Server Error !!", error },
