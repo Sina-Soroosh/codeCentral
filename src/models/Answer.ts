@@ -34,6 +34,6 @@ const schema = new mongoose.Schema(
   }
 );
 
-const model = mongoose.models.Question || mongoose.model("Question", schema);
+const model = mongoose.models.Answer || mongoose.model("Answer", schema);
 
 export default model;

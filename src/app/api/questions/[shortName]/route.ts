@@ -1,5 +1,6 @@
 import { connectToDB } from "@/configs/db";
 import getUser from "@/helpers/getUserServer";
+import AnswerModel from "@/models/Answer";
 import QuestionModel from "@/models/Question";
 import { ObjectId } from "mongoose";
 import { NextRequest } from "next/server";
@@ -46,6 +47,8 @@ export const DELETE = async (
     }
 
     await QuestionModel.findByIdAndDelete(question._id);
+
+    await AnswerModel.deleteMany({ question: question._id });
 
     return Response.json({ message: "Remove Question is successfully !!" });
   } catch (error) {
