@@ -4,12 +4,15 @@ import Tab from "@/components/modules/Tab/Tab";
 import { SearchParams as SearchParamsType } from "@/types/SearchParams.types";
 import QuestionBox from "@/components/modules/QuestionBox/QuestionBox";
 import Pagination from "@/components/modules/Pagination/Pagination";
+import { QuestionWithoutBody } from "@/types/Question.types";
 
 type MainProps = {
   searchParams: SearchParamsType;
+  questions: QuestionWithoutBody[];
+  manyPage: number;
 };
 
-function Main({ searchParams }: MainProps) {
+function Main({ searchParams, questions, manyPage }: MainProps) {
   return (
     <>
       <div className={styles.main}>
@@ -22,18 +25,23 @@ function Main({ searchParams }: MainProps) {
             searchParams={searchParams}
             isUser={false}
           />
-          <div className={styles.container}>
-            <QuestionBox />
-            <QuestionBox />
-            <QuestionBox />
-          </div>
-          <Pagination
-            activePage={isNaN(+searchParams?.page) ? 1 : +searchParams.page}
-            manyPage={3}
-            path="/questions"
-            searchParams={searchParams}
-          />
-          {/* <p className={styles.err}>سوالی برای نمایش وجود ندارد!</p> */}
+          {questions.length ? (
+            <>
+              <div className={styles.container}>
+                {questions.map((question) => (
+                  <QuestionBox key={question._id.toString()} {...question} />
+                ))}
+              </div>
+              <Pagination
+                activePage={isNaN(+searchParams?.page) ? 1 : +searchParams.page}
+                manyPage={manyPage}
+                path="/questions"
+                searchParams={searchParams}
+              />
+            </>
+          ) : (
+            <p className={styles.err}>سوالی برای نمایش وجود ندارد!</p>
+          )}
         </div>
       </div>
     </>

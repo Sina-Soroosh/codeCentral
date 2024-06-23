@@ -30,7 +30,9 @@ function Tab({ activeTab, path, searchParams, isUser }: TabProps) {
     let searches = `tab=${tab}`;
 
     for (const key in searchParams) {
-      if (key !== "tab") {
+      if (key === "page") {
+        searches += `&${key}=${1}`;
+      } else if (key !== "tab") {
         searches += `&${key}=${searchParams[key]}`;
       }
     }
