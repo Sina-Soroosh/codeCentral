@@ -1,8 +1,13 @@
 import React from "react";
 import styles from "./Main.module.css";
 import TagBox from "@/components/modules/TagBox/TagBox";
+import { Tag } from "@/types/Tags.types";
 
-function Main() {
+type MainProps = {
+  tags: (Tag & { questions: { title: string }[] })[];
+};
+
+function Main({ tags }: MainProps) {
   return (
     <>
       <div className={styles.main}>
@@ -12,33 +17,11 @@ function Main() {
         </div>
         <div className={styles.content}>
           <div className="row">
-            <div className="col-6 col-md-3">
-              <TagBox />
-            </div>
-            <div className="col-6 col-md-3">
-              <TagBox />
-            </div>
-            <div className="col-6 col-md-3">
-              <TagBox />
-            </div>
-            <div className="col-6 col-md-3">
-              <TagBox />
-            </div>
-            <div className="col-6 col-md-3">
-              <TagBox />
-            </div>
-            <div className="col-6 col-md-3">
-              <TagBox />
-            </div>
-            <div className="col-6 col-md-3">
-              <TagBox />
-            </div>
-            <div className="col-6 col-md-3">
-              <TagBox />
-            </div>
-            <div className="col-6 col-md-3">
-              <TagBox />
-            </div>
+            {tags.map((tag) => (
+              <div className="col-6 col-md-3" key={tag._id.toString()}>
+                <TagBox {...tag} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
