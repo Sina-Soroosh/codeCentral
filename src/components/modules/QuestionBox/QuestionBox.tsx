@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./QuestionBox.module.css";
 import Link from "next/link";
 import { QuestionWithoutBody } from "@/types/Question.types";
+import { convertToSolarDate } from "@/helpers/date";
 
 function QuestionBox(props: QuestionWithoutBody) {
   return (
@@ -21,7 +22,7 @@ function QuestionBox(props: QuestionWithoutBody) {
         </div>
         <div className={styles.user}>
           <span>
-            در تاریخ 1402/03/22 توسط{" "}
+            در تاریخ {convertToSolarDate(props.createdAt)} توسط{" "}
             <Link href={`/user/${props.user?.username}`}>
               {props.user?.username}
             </Link>
