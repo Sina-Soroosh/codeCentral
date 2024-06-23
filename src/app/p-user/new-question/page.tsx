@@ -5,6 +5,8 @@ import Main from "@/components/templates/PanelUser/NewQuestion/Main/Main";
 import { redirect } from "next/navigation";
 import getUser from "@/helpers/getUserServer";
 import SetCookie from "@/components/modules/SetCookie/SetCookie";
+import TagModel from "@/models/Tag";
+import { Tag } from "@/types/Tags.types";
 
 export const metadata: Metadata = {
   title: "ایجاد سوال جدید - مرکز کد",
@@ -17,11 +19,13 @@ async function page() {
     redirect("/login");
   }
 
+  const tags: Tag[] = await TagModel.find({}, "shortName title");
+
   return (
     <>
       {user.token ? <SetCookie token={user.token} /> : null}
       <UserPanel>
-        <Main />
+        <Main tags={tags} />
       </UserPanel>
     </>
   );
