@@ -30,18 +30,23 @@ function Main({ searchParams, tag, questions, manyPage }: MainProps) {
             searchParams={searchParams}
             isUser={false}
           />
-          <div className={styles.container}>
-            {questions.map((question) => (
-              <QuestionBox key={question._id.toString()} {...question} />
-            ))}
-          </div>
-          <Pagination
-            activePage={isNaN(+searchParams?.page) ? 1 : +searchParams.page}
-            manyPage={manyPage}
-            path={`/tags/${tag}`}
-            searchParams={searchParams}
-          />
-          {/* <p className={styles.err}>سوالی برای نمایش وجود ندارد!</p> */}
+          {questions.length ? (
+            <>
+              <div className={styles.container}>
+                {questions.map((question) => (
+                  <QuestionBox key={question._id.toString()} {...question} />
+                ))}
+              </div>
+              <Pagination
+                activePage={isNaN(+searchParams?.page) ? 1 : +searchParams.page}
+                manyPage={manyPage}
+                path={`/tags/${tag}`}
+                searchParams={searchParams}
+              />
+            </>
+          ) : (
+            <p className={styles.err}>سوالی برای نمایش وجود ندارد!</p>
+          )}
         </div>
       </div>
     </>
