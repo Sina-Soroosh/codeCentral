@@ -7,6 +7,7 @@ import QuestionModel from "@/models/Question";
 import TagModel from "@/models/Tag";
 import { redirect } from "next/navigation";
 import { QuestionWithoutBody } from "@/types/Question.types";
+import { connectToDB } from "@/configs/db";
 
 export const metadata: Metadata = {
   title: "سوالات جاوااسکریپت - مرکز کد",
@@ -18,6 +19,8 @@ type TagProps = {
 };
 
 async function page({ searchParams, params }: TagProps) {
+  await connectToDB();
+
   const tag: null | Tag = await TagModel.findOne({
     shortName: params.tag,
   }).lean();

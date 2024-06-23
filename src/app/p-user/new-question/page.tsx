@@ -7,12 +7,15 @@ import getUser from "@/helpers/getUserServer";
 import SetCookie from "@/components/modules/SetCookie/SetCookie";
 import TagModel from "@/models/Tag";
 import { Tag } from "@/types/Tags.types";
+import { connectToDB } from "@/configs/db";
 
 export const metadata: Metadata = {
   title: "ایجاد سوال جدید - مرکز کد",
 };
 
 async function page() {
+  await connectToDB();
+
   const user = await getUser();
 
   if (user.isLogin === false) {

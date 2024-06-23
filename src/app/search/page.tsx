@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { QuestionWithoutBody } from "@/types/Question.types";
 import QuestionModel from "@/models/Question";
 import { SearchParams } from "@/types/SearchParams.types";
+import { connectToDB } from "@/configs/db";
 
 type SearchProps = {
   searchParams: SearchParams;
@@ -20,6 +21,8 @@ async function page({ searchParams }: SearchProps) {
   if (!searchParams.q) {
     redirect("/404");
   }
+
+  await connectToDB();
 
   const allQuestions: QuestionWithoutBody[] = await QuestionModel.find(
     searchParams.tab === "unanswered"

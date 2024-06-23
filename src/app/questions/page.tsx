@@ -4,6 +4,7 @@ import Main from "@/components/templates/Questions/Main/Main";
 import { SearchParams as SearchParamsType } from "@/types/SearchParams.types";
 import { QuestionWithoutBody } from "@/types/Question.types";
 import QuestionModel from "@/models/Question";
+import { connectToDB } from "@/configs/db";
 
 export const metadata: Metadata = {
   title: "سوالات - مرکز کد",
@@ -14,6 +15,8 @@ type QuestionsProps = {
 };
 
 async function page({ searchParams }: QuestionsProps) {
+  await connectToDB();
+
   const questions: QuestionWithoutBody[] = await QuestionModel.find(
     searchParams.tab === "unanswered"
       ? {
