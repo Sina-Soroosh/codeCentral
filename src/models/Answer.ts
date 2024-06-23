@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import QuestionModel from "./Question";
-import UserModel from "./User";
+require("./Question");
+require("./User");
 
 const schema = new mongoose.Schema(
   {

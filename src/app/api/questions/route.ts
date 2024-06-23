@@ -57,7 +57,7 @@ export const POST = async (req: NextRequest): Promise<Response> => {
 
     const tags: ObjectId[] = mainTags.map((tag) => tag._id);
     const now = new Date().getTime();
-    const shortName = now.toString() + "-" + body.title.split(" ").join("-");
+    const shortName = now.toString();
 
     await QuestionModel.create({
       title: body.title,
