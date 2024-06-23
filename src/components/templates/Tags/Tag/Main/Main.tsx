@@ -4,13 +4,16 @@ import Tab from "@/components/modules/Tab/Tab";
 import { SearchParams as SearchParamsType } from "@/types/SearchParams.types";
 import QuestionBox from "@/components/modules/QuestionBox/QuestionBox";
 import Pagination from "@/components/modules/Pagination/Pagination";
+import { QuestionWithoutBody } from "@/types/Question.types";
 
 type MainProps = {
   searchParams: SearchParamsType;
   tag: string;
+  questions: QuestionWithoutBody[];
+  manyPage: number;
 };
 
-function Main({ searchParams, tag }: MainProps) {
+function Main({ searchParams, tag, questions, manyPage }: MainProps) {
   return (
     <>
       <div className={styles.main}>
@@ -28,13 +31,13 @@ function Main({ searchParams, tag }: MainProps) {
             isUser={false}
           />
           <div className={styles.container}>
-            <QuestionBox />
-            <QuestionBox />
-            <QuestionBox />
+            {questions.map((question) => (
+              <QuestionBox key={question._id.toString()} {...question} />
+            ))}
           </div>
           <Pagination
             activePage={isNaN(+searchParams?.page) ? 1 : +searchParams.page}
-            manyPage={3}
+            manyPage={manyPage}
             path={`/tags/${tag}`}
             searchParams={searchParams}
           />
