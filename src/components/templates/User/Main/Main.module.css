@@ -63,3 +63,10 @@
     border-radius: 5px;
     margin: 15px 0;
 }
+
+.main .content .err {
+    text-align: center;
+    font-size: 20px;
+    color: #d16363;
+    margin: 20px 0;
+}
