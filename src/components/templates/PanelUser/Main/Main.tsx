@@ -6,8 +6,19 @@ import { LuMailQuestion } from "react-icons/lu";
 import { MdOutlineQuestionAnswer } from "react-icons/md";
 import { GrStatusGood } from "react-icons/gr";
 import { SiAnswer } from "react-icons/si";
+import { QuestionWithoutBody } from "@/types/Question.types";
+import { Answer } from "@/types/Answer.types";
 
-function Main() {
+type MainProps = {
+  numberOfQuestions: number;
+  numberOfAnswers: number;
+  numberOfBestAnswers: number;
+  numberOfPracticalAnswers: number;
+  questions: QuestionWithoutBody[];
+  answers: Answer[];
+};
+
+function Main(props: MainProps) {
   return (
     <>
       <div className={styles.main}>
@@ -17,7 +28,7 @@ function Main() {
               <div className="col-md-6 col-lg-3">
                 <InfoBox
                   icon={<LuMailQuestion />}
-                  count={3}
+                  count={props.numberOfQuestions}
                   text="سوال"
                   title="سوالات شما"
                 />
@@ -25,7 +36,7 @@ function Main() {
               <div className="col-md-6 col-lg-3">
                 <InfoBox
                   icon={<MdOutlineQuestionAnswer />}
-                  count={2}
+                  count={props.numberOfAnswers}
                   text="پاسخ"
                   title="پاسخ های شما"
                 />
@@ -33,7 +44,7 @@ function Main() {
               <div className="col-md-6 col-lg-3">
                 <InfoBox
                   icon={<GrStatusGood />}
-                  count={1}
+                  count={props.numberOfBestAnswers}
                   text="پاسخ"
                   title="بهترین پاسخ"
                 />
@@ -41,7 +52,7 @@ function Main() {
               <div className="col-md-6 col-lg-3">
                 <InfoBox
                   icon={<SiAnswer />}
-                  count={1}
+                  count={props.numberOfPracticalAnswers}
                   text="پاسخ"
                   title="پاسخ کاربردی"
                 />
@@ -55,10 +66,16 @@ function Main() {
                   <div className={styles.title}>
                     <h5>3 سوال اخیر شما</h5>
                   </div>
-                  <QuestionBox />
-                  <QuestionBox />
-                  <QuestionBox />
-                  {/* <p className={styles.err}>سوالی یافت نشد</p> */}
+                  {props.questions.length ? (
+                    props.questions.map((question) => (
+                      <QuestionBox
+                        key={question._id.toString()}
+                        {...question}
+                      />
+                    ))
+                  ) : (
+                    <p className={styles.err}>سوالی یافت نشد</p>
+                  )}
                 </div>
               </div>
               <div className="col-lg-6">
@@ -66,10 +83,16 @@ function Main() {
                   <div className={styles.title}>
                     <h5>3 جواب اخیر شما</h5>
                   </div>
-                  {/* <QuestionBox />
-                  <QuestionBox />
-                  <QuestionBox /> */}
-                  <p className={styles.err}>جوابی یافت نشد</p>
+                  {props.answers.length ? (
+                    props.answers.map((answer) => (
+                      <QuestionBox
+                        key={answer._id.toString()}
+                        {...answer.question}
+                      />
+                    ))
+                  ) : (
+                    <p className={styles.err}>جوابی یافت نشد</p>
+                  )}
                 </div>
               </div>
             </div>
