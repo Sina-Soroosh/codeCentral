@@ -71,6 +71,7 @@ async function page({ params }: QuestionProps) {
     <>
       <Main
         isAdmin={isAdmin}
+        isLogin={user.isLogin}
         isCreator={isCreator}
         answers={answers}
         question={question}

@@ -11,10 +11,11 @@ type MainProps = {
   question: Question;
   answers: AnswerWithoutQuestion[];
   isAdmin: boolean;
+  isLogin: boolean;
   isCreator: boolean;
 };
 
-function Main({ question, answers, isAdmin, isCreator }: MainProps) {
+function Main({ question, answers, isAdmin, isCreator, isLogin }: MainProps) {
   return (
     <>
       <div className={styles.main}>
@@ -57,7 +58,7 @@ function Main({ question, answers, isAdmin, isCreator }: MainProps) {
               />
             ))}
           </div>
-          <Answer />
+          <Answer shortName={question.shortName} isLogin={isLogin} />
         </div>
       </div>
     </>
