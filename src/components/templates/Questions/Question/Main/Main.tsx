@@ -3,8 +3,18 @@ import styles from "./Main.module.css";
 import Link from "next/link";
 import AnswerBox from "@/components/modules/AnswerBox/AnswerBox";
 import Answer from "../Answer/Answer";
+import { Question } from "@/types/Question.types";
+import { AnswerWithoutQuestion } from "@/types/Answer.types";
+import { convertToSolarDate } from "@/helpers/date";
 
-function Main() {
+type MainProps = {
+  question: Question;
+  answers: AnswerWithoutQuestion[];
+  isAdmin: boolean;
+  isCreator: boolean;
+};
+
+function Main({ question, answers, isAdmin, isCreator }: MainProps) {
   return (
     <>
       <div className={styles.main}>
@@ -12,37 +22,40 @@ function Main() {
           <div className={styles.question}>
             <div className={styles.title}>
               <h3>
-                <Link href="/questions/کاربرد-هوک">چرا پاسخ false است؟</Link>
+                <Link href={`/questions/${question.shortName}`}>
+                  {question.title}
+                </Link>
               </h3>
             </div>
-            <div className={styles.body}>
-              <pre>
-                let x = [1,2,3]
-                <br />
-                let y =[1,2,3]
-                <br />
-                <br />
-                console.log(x===y)
-              </pre>
-            </div>
+            <div
+              className={styles.body}
+              dangerouslySetInnerHTML={{ __html: question.body }}
+            ></div>
             <div className={styles.tags}>
-              <Link href="/tags/react" className={styles.tag}>
-                react
-              </Link>
-              <Link href="/tags/js" className={styles.tag}>
-                js
-              </Link>
+              {question.tags?.map((tag) => (
+                <Link href={`/tags/${tag.shortName}`} className={styles.tag}>
+                  {tag.title}
+                </Link>
+              ))}
             </div>
             <div className={styles.user}>
               <span>
-                در تاریخ 1402/03/22 توسط <Link href="/user/test">test</Link>
+                در تاریخ {convertToSolarDate(question.createdAt)} توسط{" "}
+                <Link href={`/user/${question.user?.username}`}>
+                  {question.user?.username}
+                </Link>
               </span>
             </div>
           </div>
           <div className={styles.answers}>
-            <AnswerBox />
-            <AnswerBox />
-            <AnswerBox />
+            {answers.map((answer) => (
+              <AnswerBox
+                answer={answer}
+                isAdmin={isAdmin}
+                isCreator={isCreator}
+                key={answer._id.toString()}
+              />
+            ))}
           </div>
           <Answer />
         </div>
