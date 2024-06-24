@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Main.module.css";
 import TagBox from "@/components/modules/TagBox/TagBox";
 import { Tag } from "@/types/Tags.types";
+import { SearchParams } from "@/types/SearchParams.types";
 
 type MainProps = {
   tags: (Tag & { questions: { title: string }[] })[];
