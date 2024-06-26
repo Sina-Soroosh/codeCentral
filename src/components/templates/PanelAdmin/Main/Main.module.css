@@ -1,0 +1,58 @@
+.main {
+    padding: 30px 100px;
+}
+
+.main .content .activity {
+    margin: 20px 0;
+    background-color: #2e2d33;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.main .content .activity .users,
+.main .content .activity .tags {
+    padding: 15px;
+    background-color: #504d5e;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.main .content .activity .users .title h5,
+.main .content .activity .tags .title h5 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.main .content .activity .users .box,
+.main .content .activity .tags .box {
+    padding: 10px 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-top: 1px solid #3f3f46;
+    border-bottom: 1px solid #3f3f46;
+}
+
+.main .content .activity .users .box a,
+.main .content .activity .tags .box a {
+    color: #f1f1f1;
+    text-decoration: underline;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.main .content .activity .users .err,
+.main .content .activity .tags .err {
+    text-align: center;
+    color: #ff7676;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+@media screen and (max-width : 767px) {
+    .main {
+        padding: 30px 20px;
+    }
+}
