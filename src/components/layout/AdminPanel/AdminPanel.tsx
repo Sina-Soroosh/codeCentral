@@ -89,7 +89,7 @@ function AdminPanel({ children }: PropsWithChildren) {
             <li>
               <Link href="/p-admin/bans">
                 <TbBan />
-                مسدود شده کاربران
+                کاربران مسدود شده
               </Link>
             </li>
             <li>

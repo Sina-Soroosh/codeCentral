@@ -61,6 +61,40 @@ i {
   font-size: 13px !important;
 }
 
+th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-stickyHeader.MuiTableCell-alignRight.MuiTableCell-sizeMedium.css-i02g0k-MuiTableCell-root {
+  background: #504d5e;
+  color: #fff;
+  font-size: 17px !important;
+  font-weight: 700;
+  z-index: 1;
+}
+
+tr.MuiTableRow-root.MuiTableRow-hover.css-1q1u3t4-MuiTableRow-root {
+  background: #504d5e;
+}
+
+td.MuiTableCell-root.MuiTableCell-body.MuiTableCell-alignRight.MuiTableCell-sizeMedium.css-177gid-MuiTableCell-root {
+  border-color: #3f3f46;
+  color: #fff;
+  font-size: 14px;
+}
+
+.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.MuiTablePagination-toolbar.css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar {
+  background: #727191;
+  border-top: 1px solid #3f3f46;
+  color: #fff;
+  font-size: 13px;
+}
+
+.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.MuiTablePagination-toolbar.css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar * {
+  font-size: 11px;
+}
+
+ul#\:R2aktbat7rqcq\: {
+  background: #504d5e;
+  color: #fff;
+}
+
 @media screen and (max-width : 767px) {
   .main_child {
     margin-top: 70px;
