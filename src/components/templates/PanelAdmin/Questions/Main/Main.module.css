@@ -1,0 +1,61 @@
+.main {
+    padding: 30px 100px;
+}
+
+.main .content {
+    background-color: #2e2d33;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.main .content .title h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.main .content .filtering {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.main .content .filtering .types {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.main .content .filtering .types .input_box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main .content .filtering .types .input_box label {
+    color: #fff;
+    font-size: 14px;
+}
+
+.main .content .filtering .search input {
+    width: 100%;
+    background: #504d5e;
+    border: 1px solid #3f3f46;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    transition: .3s;
+}
+
+.main .content .table .cell a{
+    color: #fff;
+    text-decoration: underline;
+}
+
+@media screen and (max-width : 767px) {
+    .main {
+        padding: 30px 20px;
+    }
+}
