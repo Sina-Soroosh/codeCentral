@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+require("./Question");
+require("./Answer");
 
 const schema = new mongoose.Schema(
   {
@@ -38,6 +40,18 @@ const schema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+schema.virtual("questions", {
+  localField: "_id",
+  foreignField: "user",
+  ref: "Question",
+});
+
+schema.virtual("answers", {
+  localField: "_id",
+  foreignField: "user",
+  ref: "Answer",
+});
 
 const model = mongoose.models.User || mongoose.model("User", schema);
 
