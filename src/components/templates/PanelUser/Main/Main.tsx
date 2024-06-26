@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Main.module.css";
 import QuestionBox from "@/components/modules/QuestionBox/QuestionBox";
-import InfoBox from "@/components/modules/UserPanel/InfoBox/InfoBox";
+import InfoBox from "@/components/modules/InfoBox/InfoBox";
 import { LuMailQuestion } from "react-icons/lu";
 import { MdOutlineQuestionAnswer } from "react-icons/md";
 import { GrStatusGood } from "react-icons/gr";

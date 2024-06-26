@@ -9,10 +9,11 @@ import { useRouter } from "next/navigation";
 
 interface MenuForMobileProps {
   isActive: boolean;
+  isAdmin: boolean;
   hideMenu: () => void;
 }
 
-function MenuForMobile({ isActive, hideMenu }: MenuForMobileProps) {
+function MenuForMobile({ isActive, hideMenu, isAdmin }: MenuForMobileProps) {
   const inputRef = useRef<null | HTMLInputElement>(null);
   const router = useRouter();
 
@@ -72,6 +73,13 @@ function MenuForMobile({ isActive, hideMenu }: MenuForMobileProps) {
               <li>
                 <Link href="/about">درباره مرکز کد</Link>
               </li>
+              {isAdmin ? (
+                <li>
+                  <Link href="/p-admin">پنل مدیریت</Link>
+                </li>
+              ) : (
+                <></>
+              )}
             </ul>
           </div>
         </div>

@@ -160,12 +160,23 @@ function Header() {
                 <li>
                   <Link href="/about">درباره مرکز کد</Link>
                 </li>
+                {data?.isLogin && data.isAdmin ? (
+                  <li>
+                    <Link href="/p-admin">پنل مدیریت</Link>
+                  </li>
+                ) : (
+                  <></>
+                )}
               </ul>
             </div>
           </div>
         </div>
       </header>
-      <MenuForMobile isActive={isShowMenu} hideMenu={hideMenu} />
+      <MenuForMobile
+        isActive={isShowMenu}
+        hideMenu={hideMenu}
+        isAdmin={data?.isLogin ? data.isAdmin : false}
+      />
       {isShowLoader ? <Loader /> : null}
     </>
   );
