@@ -4,6 +4,7 @@ import { connectToDB } from "@/configs/db";
 import getUser from "@/helpers/getUserServer";
 import { redirect } from "next/navigation";
 import { Metadata } from "next";
+import Create from "@/components/templates/PanelAdmin/Users/Create/Create";
 
 export const metadata: Metadata = {
   title: " لیست کاربران پنل مدیریت - مرکز کد",
@@ -24,7 +25,9 @@ async function page() {
 
   return (
     <>
-      <AdminPanel></AdminPanel>
+      <AdminPanel>
+        <Create />
+      </AdminPanel>
     </>
   );
 }
