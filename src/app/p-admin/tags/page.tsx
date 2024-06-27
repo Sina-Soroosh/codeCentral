@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import AdminPanel from "@/components/layout/AdminPanel/AdminPanel";
+import Create from "@/components/templates/PanelAdmin/Tags/Create/Create";
 
 export const metadata: Metadata = {
   title: "برچسب ها پنل مدیریت - مرکز کد",
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 function page() {
   return (
     <>
-      <AdminPanel></AdminPanel>
+      <AdminPanel>
+        <Create />
+      </AdminPanel>
     </>
   );
 }
