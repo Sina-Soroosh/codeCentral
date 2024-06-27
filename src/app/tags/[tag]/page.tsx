@@ -9,9 +9,23 @@ import { redirect } from "next/navigation";
 import { QuestionWithoutBody } from "@/types/Question.types";
 import { connectToDB } from "@/configs/db";
 
-export const metadata: Metadata = {
-  title: "سوالات جاوااسکریپت - مرکز کد",
-};
+export async function generateMetadata({
+  params,
+}: TagProps): Promise<Metadata> {
+  await connectToDB();
+
+  const tag: null | Tag = await TagModel.findOne({
+    shortName: params.tag,
+  }).lean();
+
+  if (!tag) {
+    return {};
+  }
+
+  return {
+    title: `سوالات ${tag.title} - مرکز کد`,
+  };
+}
 
 type TagProps = {
   searchParams: SearchParamsType;
