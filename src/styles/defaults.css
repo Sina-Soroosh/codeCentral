@@ -61,7 +61,8 @@ i {
   font-size: 13px !important;
 }
 
-th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-stickyHeader.MuiTableCell-alignRight.MuiTableCell-sizeMedium.css-i02g0k-MuiTableCell-root {
+th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-stickyHeader.MuiTableCell-alignRight.MuiTableCell-sizeMedium,
+th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-stickyHeader.MuiTableCell-alignRight.MuiTableCell-sizeMedium {
   background: #504d5e;
   color: #fff;
   font-size: 17px !important;
@@ -69,24 +70,28 @@ th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-stickyHeader.MuiTableCell-al
   z-index: 1;
 }
 
-tr.MuiTableRow-root.MuiTableRow-hover.css-1q1u3t4-MuiTableRow-root {
+tr.MuiTableRow-root.MuiTableRow-hover {
   background: #504d5e;
 }
 
-td.MuiTableCell-root.MuiTableCell-body.MuiTableCell-alignRight.MuiTableCell-sizeMedium.css-177gid-MuiTableCell-root {
+tr.MuiTableRow-root.MuiTableRow-hover:hover {
+  background: #3f3f46;
+}
+
+td.MuiTableCell-root.MuiTableCell-body.MuiTableCell-alignRight.MuiTableCell-sizeMedium {
   border-color: #3f3f46;
   color: #fff;
   font-size: 14px;
 }
 
-.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.MuiTablePagination-toolbar.css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar {
+.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.MuiTablePagination-toolbar {
   background: #727191;
   border-top: 1px solid #3f3f46;
   color: #fff;
   font-size: 13px;
 }
 
-.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.MuiTablePagination-toolbar.css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar * {
+.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.MuiTablePagination-toolbar * {
   font-size: 11px;
 }
 
