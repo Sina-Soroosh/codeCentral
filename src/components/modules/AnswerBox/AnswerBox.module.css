@@ -45,6 +45,7 @@
     font-size: 17px;
     color: #fff;
     margin-bottom: 5px;
+    overflow: hidden;
 }
 
 .box .body blockquote {
