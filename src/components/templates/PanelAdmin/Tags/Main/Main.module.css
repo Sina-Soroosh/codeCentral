@@ -1,0 +1,64 @@
+.main {
+    padding: 30px 100px;
+    max-width: 100vw;
+}
+
+.main .content {
+    background-color: #2e2d33;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.main .content .title h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.main .content .filtering {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+
+.main .content .filtering .search input {
+    width: 100%;
+    background: #504d5e;
+    border: 1px solid #3f3f46;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    transition: .3s;
+}
+
+.main .content .table .cell a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+.form_update {
+    text-align: right;
+}
+
+.form_update label {
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #000;
+    font-weight: 700;
+}
+
+.form_update input {
+    font-size: 13px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+@media screen and (max-width : 767px) {
+    .main {
+        padding: 30px 20px;
+    }
+}

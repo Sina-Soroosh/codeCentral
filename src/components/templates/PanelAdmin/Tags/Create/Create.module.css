@@ -69,3 +69,9 @@
     background-color: transparent;
     color: #4E9F3D;
 }
+
+@media screen and (max-width : 767px) {
+    .create {
+        padding: 30px 20px;
+    }
+}
