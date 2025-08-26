@@ -6,12 +6,13 @@ const connectToDB = async (): Promise<boolean> => {
       return true;
     }
 
-    await connect(process.env.DB_URI as string);
+    await connect(process.env.MONGODB_URI as string);
 
     console.log("Connect to DB is successfully !!");
 
     return true;
   } catch (error) {
+    console.log(error);
     console.log("Connect to DB is has error !!");
 
     return false;
